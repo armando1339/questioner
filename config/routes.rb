@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :questions, only: %i(index create update destroy)
+      resources :questions, only: %i(index create update destroy) do
+        resources :answers, only: %i(index create update)
+      end
     end
   end
 

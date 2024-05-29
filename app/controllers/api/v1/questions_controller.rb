@@ -4,7 +4,7 @@ module Api
       before_action :set_question, only: %w(update destroy)
 
       def index
-        @questions = Question.all
+        @pagy, @questions = pagy(Question.all, items: 10)
 
         render :index
       end
