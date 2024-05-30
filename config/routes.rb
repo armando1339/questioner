@@ -3,11 +3,15 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :questions, only: %i(index create update destroy) do
-        resources :answers, only: %i(index create update)
+        resources :answers, only: %i(index create update destroy)
+      end
+
+      resources :users, only: %i(create) do
+        post "login", on: :collection, as: :login
+        post "logout", on: :collection
       end
     end
   end
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

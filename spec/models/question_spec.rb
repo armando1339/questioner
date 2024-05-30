@@ -22,4 +22,15 @@ RSpec.describe Question, type: :model do
       expect(subject.errors[:body]).to include("can't be blank")
     end
   end
+
+  context "associations" do
+    it "should have and association one to many with answer" do
+      should have_many(:answers).dependent(:destroy)
+    end
+
+
+    it "should have and association one to many with tag" do
+      should have_many(:tags).dependent(:destroy)
+    end
+  end
 end

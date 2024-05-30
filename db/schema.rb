@@ -17,9 +17,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_204238) do
   create_table "answers", force: :cascade do |t|
     t.text "body"
     t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -37,6 +39,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_204238) do
     t.index ["question_id"], name: "index_tags_on_question_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "jwt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
   add_foreign_key "tags", "questions"
 end

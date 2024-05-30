@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Api::V1Questions", type: :request do
+
+  # NOT WORKING TEST
+  # RETURNING 403 FORBIDDEN
+  # TESTED IN POSTMAN
   pending
 
   # let(:valid_params) {
@@ -21,6 +25,12 @@ RSpec.describe "Api::V1Questions", type: :request do
   # end
 
   # describe "POST /create" do
+  #   it "create new question" do
+  #     post "/api/v1/questions", params: valid_params
+      
+  #     expect(response).to have_http_status(:success)
+  #   end
+
   #   it "create new question" do
 
   #     expect {

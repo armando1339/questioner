@@ -16,5 +16,9 @@ RSpec.describe Answer, type: :model do
     it "have a one to one association with question model" do
       should belong_to(:question)
     end
+
+    it "have a one to one association with user model" do
+      should belong_to(:user).optional(true)
+    end
   end
 end
